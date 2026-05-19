@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PTK Brooms | Luxury Premium Manufacturing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    radial-gradient(circle at top left,#2f220d 0%,#050505 35%),
+    radial-gradient(circle at bottom right,#2b1b08 0%,#050505 40%);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* GOLD LIGHTS */
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(212,175,55,0.09),transparent 25%),
+    radial-gradient(circle at 80% 30%,rgba(255,215,0,0.07),transparent 30%),
+    radial-gradient(circle at 50% 80%,rgba(212,175,55,0.05),transparent 30%);
+
+    z-index:-1;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#d4af37,#f5d77b);
+    border-radius:20px;
+}
+
+/* =========================
+LOADER
+========================= */
+
+#loader{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    flex-direction:column;
+}
+
+#loader img{
+    width:160px;
+    animation:pulse 2s infinite;
+}
+
+#loader h2{
+    margin-top:20px;
+    color:#d4af37;
+    font-family:'Cinzel',serif;
+    letter-spacing:4px;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.06);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+    top:0;
+    z-index:1000;
+
+    background:rgba(0,0,0,0.55);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(212,175,55,0.18);
+
+    box-shadow:0 5px 25px rgba(0,0,0,0.5);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:75px;
+    border-radius:50%;
+
+    box-shadow:
+    0 0 20px rgba(212,175,55,0.45),
+    0 0 50px rgba(212,175,55,0.18);
+
+    transition:0.4s;
+}
+
+.logo img:hover{
+    transform:scale(1.08) rotate(2deg);
+}
+
+.logo h1{
+    color:#f5d77b;
+    font-size:30px;
+    letter-spacing:3px;
+    font-family:'Cinzel',serif;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    position:relative;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#d4af37;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:linear-gradient(to right,#d4af37,#f5d77b);
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:30px;
+    height:22px;
+    cursor:pointer;
+    z-index:1002;
+}
+
+.hamburger span{
+    display:block;
+    width:100%;
+    height:3px;
+    background:#f5d77b;
+    border-radius:3px;
+    transition:0.3s;
+}
+
+.hamburger.active span:nth-child(1){
+    transform:translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2){
+    opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+    transform:translateY(-9px) rotate(-45deg);
+}
+
+.nav-menu{
+    transition:0.4s ease;
+}
+
+.nav-menu li a{
+    display:block;
+}
+
+/* =========================
+HERO SECTION
+========================= */
+
+.hero{
+    width:100%;
+    height:100vh;
+
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:0 10%;
+}
+
+/* VIDEO */
+
+.bg-video{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:-3;
+}
+
+/* OVERLAY */
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.88));
+
+    z-index:-2;
+}
+
+/* GOLD PARTICLES */
+
+.hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle,rgba(255,215,0,0.12) 1px,transparent 1px);
+
+    background-size:60px 60px;
+
+    opacity:0.25;
+
+    animation:moveParticles 20s linear infinite;
+}
+
+@keyframes moveParticles{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-100px);
+    }
+}
+
+.hero-content{
+    animation:fadeUp 1.5s ease;
+    z-index:5;
+}
+
+.hero-content h2{
+
+    font-size:85px;
+
+    line-height:1.15;
+
+    margin-bottom:25px;
+
+    font-family:'Cinzel',serif;
+
+    background:linear-gradient(to right,#ffffff,#f5d77b,#ffffff);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 0 20px rgba(212,175,55,0.18);
+}
+
+.hero-content span{
+    color:#d4af37;
+}
+
+.hero-content p{
+    max-width:850px;
+    margin:auto;
+
+    color:#ddd;
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    margin-bottom:45px;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+
+    padding:18px 45px;
+
+    background:
+    linear-gradient(135deg,#d4af37,#f5d77b);
+
+    color:black;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 0 25px rgba(212,175,55,0.4),
+    inset 0 0 10px rgba(255,255,255,0.4);
+}
+
+.btn:hover{
+    transform:translateY(-6px) scale(1.05);
+
+    box-shadow:
+    0 0 45px rgba(212,175,55,0.6),
+    0 0 80px rgba(212,175,55,0.2);
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+.section{
+    padding:120px 10%;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:58px;
+
+    margin-bottom:80px;
+
+    font-family:'Cinzel',serif;
+
+    background:linear-gradient(to right,#ffffff,#d4af37);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* GLASS EFFECT */
+
+.glass{
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:
+    0 0 30px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.02);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* SHINE EFFECT */
+
+.glass::before{
+    content:'';
+    position:absolute;
+
+    top:-100%;
+    left:-100%;
+
+    width:200%;
+    height:200%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.05),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-100%) rotate(25deg);
+    }
+    100%{
+        transform:translateX(100%) rotate(25deg);
+    }
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.about{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:60px;
+    align-items:center;
+
+    padding:45px;
+    border-radius:30px;
+}
+
+.about img{
+    width:100%;
+    border-radius:25px;
+
+    box-shadow:
+    0 0 40px rgba(212,175,55,0.2);
+}
+
+.about-text h3{
+    font-size:42px;
+    color:#f5d77b;
+    margin-bottom:25px;
+}
+
+.about-text p{
+    color:#ccc;
+    line-height:1.9;
+    font-size:18px;
+}
+
+/* =========================
+PRODUCTS
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+}
+
+.card{
+    padding:35px;
+    border-radius:28px;
+    transition:0.5s;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+
+    box-shadow:
+    0 0 20px rgba(212,175,55,0.28),
+    0 0 50px rgba(212,175,55,0.18);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+
+    border-radius:18px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#f5d77b;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#ccc;
+    line-height:1.8;
+}
+
+.broom-sizes{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.broom-size{
+    width:calc(33.333% - 8px);
+    min-width:80px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+}
+
+.broom-graphic{
+    width:12px;
+    background:linear-gradient(#d4af37,#f5d77b);
+    border-radius:8px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+}
+
+.broom-graphic::after{
+    content:'';
+    width:22px;
+    height:18px;
+    background:rgba(212,175,55,0.18);
+    border-radius:0 0 12px 12px;
+    position:absolute;
+    bottom:-9px;
+}
+
+.broom-size-label{
+    font-size:14px;
+    color:#ddd;
+    text-align:center;
+}
+
+.available-lengths{
+    font-size:15px;
+    color:#f5d77b;
+    font-weight:600;
+    margin-top:12px;
+    margin-bottom:8px;
+}
+
+.broom-size.length-25 .broom-graphic{
+    height:90px;
+}
+
+.broom-size.length-30 .broom-graphic{
+    height:110px;
+}
+
+.broom-size.length-40 .broom-graphic{
+    height:135px;
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.timeline-box{
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.timeline-box h3{
+    color:#f5d77b;
+    margin-bottom:15px;
+}
+
+/* =========================
+FEATURES
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.feature-box{
+    padding:35px;
+    border-radius:28px;
+    transition:0.4s;
+}
+
+.feature-box:hover{
+    transform:translateY(-10px);
+}
+
+.feature-box h3{
+    color:#f5d77b;
+    margin-bottom:15px;
+    font-size:26px;
+}
+
+.feature-box p{
+    color:#ccc;
+    line-height:1.8;
+}
+
+/* =========================
+TESTIMONIALS
+========================= */
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.testimonial{
+    padding:35px;
+    border-radius:28px;
+}
+
+.testimonial p{
+    color:#ccc;
+    line-height:1.9;
+}
+
+.testimonial h4{
+    color:#f5d77b;
+    margin-top:20px;
+}
+
+/* =========================
+STATS
+========================= */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:70px;
+}
+
+.stat-box{
+    text-align:center;
+}
+
+.stat-box h2{
+    font-size:68px;
+    color:#f5d77b;
+}
+
+.stat-box p{
+    color:#ddd;
+    margin-top:10px;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:16px 0;
+    color:#ddd;
+    font-size:19px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    padding:50px 10%;
+    background:black;
+    border-top:1px solid rgba(212,175,55,0.1);
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-box h3{
+    color:#f5d77b;
+    margin-bottom:20px;
+}
+
+.footer-box p,
+.footer-box a{
+    color:#999;
+    text-decoration:none;
+    display:block;
+    margin-bottom:10px;
+}
+
+.copyright{
+    text-align:center;
+    margin-top:40px;
+    color:#777;
+}
+
+/* =========================
+WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+
+    width:68px;
+    height:68px;
+
+    background:#25d366;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:32px;
+    color:white;
+
+    z-index:1000;
+
+    box-shadow:
+    0 0 30px rgba(37,211,102,0.4);
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+.fade{
+    animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width:1024px) {
+    .hero {
+        padding:0 6%;
+    }
+
+    .section {
+        padding:100px 6%;
+    }
+
+    .about {
+        gap:40px;
+    }
+
+    .products {
+        gap:30px;
+    }
+
+    .timeline,
+    .features,
+    .testimonials {
+        gap:24px;
+    }
+}
+
+@media (max-width:768px) {
+    nav {
+        padding:18px 5%;
+        align-items:center;
+    }
+
+    .hamburger {
+        display:flex;
+    }
+
+    .nav-menu {
+        position:fixed;
+        top:76px;
+        right:0;
+        width:100%;
+        max-width:360px;
+        background:rgba(0,0,0,0.98);
+        backdrop-filter:blur(12px);
+        padding:20px 0;
+        display:none;
+        flex-direction:column;
+        gap:0;
+        box-shadow:-4px 0 35px rgba(0,0,0,0.4);
+        z-index:1001;
+    }
+
+    .nav-menu.active {
+        display:flex;
+    }
+
+    .nav-menu li {
+        border-bottom:1px solid rgba(212,175,55,0.15);
+        width:100%;
+    }
+
+    .nav-menu li:last-child {
+        border-bottom:none;
+    }
+
+    .nav-menu li a {
+        padding:16px 30px;
+        font-size:18px;
+    }
+
+    nav ul {
+        display:none;
+    }
+
+    .hero {
+        height:auto;
+        padding:120px 6% 80px;
+    }
+
+    .hero-content h2 {
+        font-size:40px;
+    }
+
+    .hero-content p {
+        font-size:16px;
+    }
+
+    .section {
+        padding:80px 6%;
+    }
+
+    .section-title {
+        font-size:38px;
+        margin-bottom:60px;
+    }
+
+    .about {
+        grid-template-columns:1fr;
+    }
+
+    .about img {
+        max-height:320px;
+        object-fit:cover;
+    }
+
+    .products {
+        grid-template-columns:1fr;
+    }
+
+    .card {
+        padding:28px;
+    }
+
+    .card img {
+        height:220px;
+    }
+
+    .timeline,
+    .features,
+    .testimonials {
+        grid-template-columns:1fr;
+    }
+
+    .stats {
+        gap:35px;
+    }
+
+    .stat-box h2 {
+        font-size:52px;
+    }
+
+    .contact p {
+        font-size:17px;
+    }
+
+    footer {
+        padding:35px 6%;
+    }
+
+    .footer-content {
+        gap:30px;
+    }
+
+    .whatsapp {
+        right:18px;
+        bottom:18px;
+        width:60px;
+        height:60px;
+        font-size:28px;
+    }
+}
+
+@media (max-width:480px) {
+    .hero-content h2 {
+        font-size:32px;
+    }
+
+    .btn {
+        padding:16px 30px;
+        font-size:16px;
+    }
+
+    .section {
+        padding:70px 5%;
+    }
+
+    .section-title {
+        font-size:32px;
+    }
+
+    .card {
+        padding:24px;
+    }
+
+    .stat-box h2 {
+        font-size:44px;
+    }
+
+    .contact p {
+        font-size:16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div id="loader">
+
+    <img src="logo.png.jpeg">
+
+    <h2>PTK BROOMS</h2>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        <img src="logo.png.jpeg">
+        <h1>PTK BROOMS</h1>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+
+        <h2>
+            Premium <span>Broom Manufacturing</span> Brand
+        </h2>
+
+        <p>
+            PTK Brooms creates premium handcrafted broomsticks designed for
+            modern cleaning excellence, elegant craftsmanship, and export-quality performance.
+        </p>
+
+        <a href="#products" class="btn">
+            Explore Products
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section fade" id="about">
+
+    <h2 class="section-title">About PTK Brooms</h2>
+
+    <div class="about glass">
+
+        <img src="logo.png.jpeg">
+
+        <div class="about-text">
+
+            <h3>Crafted With Quality & Tradition</h3>
+
+            <p>
+                PTK Brooms is a premium broom manufacturing company dedicated
+                to delivering superior-quality cleaning products with modern craftsmanship,
+                durability, and eco-friendly production.
+            </p>
+
+            <br>
+
+            <p>
+                Trusted by wholesale partners, businesses, and homes,
+                our products combine traditional expertise with luxury finishing standards.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="section fade" id="products">
+
+    <h2 class="section-title">Our Premium Products</h2>
+
+    <div class="products">
+
+        <div class="card glass">
+
+            <img src="logo 2.jpeg">
+
+            <h3>Coconut Brooms</h3>
+
+            <p>
+                Heavy-duty coconut fiber brooms engineered for industrial and outdoor cleaning.
+            </p>
+
+            <div class="available-lengths">Available lengths:</div>
+
+            <div class="broom-sizes">
+                <div class="broom-size length-25">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">2.5 feet</div>
+                </div>
+                <div class="broom-size length-30">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">3 feet</div>
+                </div>
+                <div class="broom-size length-40">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">4 feet</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card glass">
+
+            <img src="logo 2.jpeg">
+
+            <h3>Light Weighted Coconut Brooms</h3>
+
+            <p>
+                Lightweight and easy-to-handle brooms perfect for daily household cleaning and office maintenance.
+            </p>
+
+            <div class="available-lengths">Available lengths:</div>
+
+            <div class="broom-sizes">
+                <div class="broom-size length-25">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">2.5 feet</div>
+                </div>
+                <div class="broom-size length-30">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">3 feet</div>
+                </div>
+                <div class="broom-size length-40">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">4 feet</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card glass">
+
+            <img src="logo 2.jpeg">
+
+            <h3>Heavy Weighted Coconut Brooms</h3>
+
+            <p>
+                Durable heavy-duty brooms designed for intense commercial use and large-scale industrial cleaning.
+            </p>
+
+            <div class="available-lengths">Available lengths:</div>
+
+            <div class="broom-sizes">
+                <div class="broom-size length-25">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">2.5 feet</div>
+                </div>
+                <div class="broom-size length-30">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">3 feet</div>
+                </div>
+                <div class="broom-size length-40">
+                    <div class="broom-graphic"></div>
+                    <div class="broom-size-label">4 feet</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MANUFACTURING -->
+
+<section class="section fade">
+
+    <h2 class="section-title">Manufacturing Process</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-box glass">
+            <h3>Raw Materials</h3>
+            <p>Premium natural fibers sourced carefully.</p>
+        </div>
+
+        <div class="timeline-box glass">
+            <h3>Handcrafting</h3>
+            <p>Traditional craftsmanship with modern precision.</p>
+        </div>
+
+        <div class="timeline-box glass">
+            <h3>Quality Testing</h3>
+            <p>Strict inspection for durability and finish.</p>
+        </div>
+
+        <div class="timeline-box glass">
+            <h3>Packaging</h3>
+            <p>Secure export-quality packaging standards.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section fade">
+
+    <h2 class="section-title">Why Choose PTK?</h2>
+
+    <div class="features">
+
+        <div class="feature-box glass">
+            <h3>Premium Quality</h3>
+            <p>Manufactured with durable high-grade materials.</p>
+        </div>
+
+        <div class="feature-box glass">
+            <h3>Eco Friendly</h3>
+            <p>Sustainable environmentally responsible production.</p>
+        </div>
+
+        <div class="feature-box glass">
+            <h3>Bulk Supply</h3>
+            <p>Reliable wholesale and export manufacturing support.</p>
+        </div>
+
+        <div class="feature-box glass">
+            <h3>Luxury Finish</h3>
+            <p>Elegant product design inspired by premium standards.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="section fade">
+
+    <h2 class="section-title">Client Testimonials</h2>
+
+    <div class="testimonials">
+
+        <div class="testimonial glass">
+
+            <p>
+                "PTK Brooms delivered excellent premium quality products for our hotel chain."
+            </p>
+
+            <h4>— Hotel Distributor</h4>
+
+        </div>
+
+        <div class="testimonial glass">
+
+            <p>
+                "Outstanding durability and elegant finishing. Highly recommended."
+            </p>
+
+            <h4>— Wholesale Partner</h4>
+
+        </div>
+
+        <div class="testimonial glass">
+
+            <p>
+                "Professional service and export-quality manufacturing standards."
+            </p>
+
+            <h4>— Retail Supplier</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="section fade">
+
+    <div class="stats">
+
+        <div class="stat-box">
+            <h2>10K+</h2>
+            <p>Happy Customers</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>15+</h2>
+            <p>Years Experience</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>50+</h2>
+            <p>Wholesale Partners</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact fade" id="contact">
+
+    <h2 class="section-title">Contact Us</h2>
+
+    <p>📍 Tamil Nadu, India</p>
+
+    <p>📞 +91 86672 14372</p>
+
+    <p>📞 +91 76048 95421</p>
+
+    <p>📧 ptkbrooms@gmail.com</p>
+
+    <br>
+
+    <a href="https://wa.me/918667214372" class="btn">
+        WhatsApp Us
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-box">
+
+            <h3>PTK Brooms</h3>
+
+            <p>Luxury premium broom manufacturing company delivering elegant cleaning solutions.</p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact</h3>
+
+            <p>+91 86672 14372</p>
+            <p>+91 76048 95421</p>
+            <p>ptkbrooms@gmail.com</p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 PTK Brooms | Cleaner Spaces, Better Places
+
+    </div>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/918667214372" class="whatsapp">
+💬
+</a>
+
+<script>
+
+/* LOADER */
+window.addEventListener("load", function(){
+    document.getElementById("loader").style.display = "none";
+});
+
+/* MOBILE NAV */
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+const navLinks = document.querySelectorAll(".nav-link");
+
+if(hamburger){
+    hamburger.addEventListener("click", function(){
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+}
+
+navLinks.forEach(link => {
+    link.addEventListener("click", function(){
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    });
+});
+
+</script>
+
+</body>
+</html>
